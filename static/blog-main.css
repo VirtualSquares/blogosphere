@@ -1,0 +1,47 @@
+body{
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.PostContainer {
+  padding: 0 15px 0 15px;
+  margin: 20px;
+}
+
+#NewPost{
+  font-size: larger;
+  outline: none;
+  color: black;
+  background-color: lightblue;
+  cursor: pointer;
+  transition: .3s ;
+  position: relative;
+}
+
+#editor{
+  visibility: hidden;
+  position: absolute;
+  bottom: 15%;
+}
+
+#NewPost:hover{
+    box-shadow: 3px 3px 2px 1px rgba(8, 8, 8, 0.8);
+}
+
+.sidenav{
+  background-color: white;
+  width: 40px;
+  height: 400px;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+

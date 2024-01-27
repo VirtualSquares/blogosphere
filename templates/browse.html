@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Blogs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'browse.css')}}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set the body to the full viewport height */
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            min-height: 50vh;
+            width: 75%;
+            padding: 20px;
+        }
+
+        .updateblog {
+            background-color: white;
+            border: 2px solid;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container, .updateblog, a {
+            font-size: 23px;
+        }
+
+        .logoutbtn {
+            position: absolute;
+            top: 20px; /* Keep the back button at the top */
+            left: 20px;
+            background-color: lightblue;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        .coming-soon {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+            background-color: peachpuff;
+            height: 5vh;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="PostContainer">
+        <button class="logoutbtn">
+            <a href="/main" style="text-decoration: none; color: black;"><b>🚶🏾Back</b></a>
+        </button>
+    </div>
+    <div class="container" id="allblogs">
+        <div style="font-size: 24px; margin-bottom: 10px; color: black; text-align: center;"><b>All Blogs</b></div>
+        {% for i in previousblogs%}
+        {% if "username" in session %}
+        {% set link = "/view/" + i['_id']|string %}
+        {% else %}
+        {% set link = "/view/" + i['_id']|string %}
+        {% endif %}
+        <a href="{{link}}" style="color: black; background-color: white; text-decoration: none; padding: 1px;">
+            <div class="row m-2 rounded p-1 updateblog" style="padding: 10px;">
+                <div>{{i["Title"]}}</div>
+                <div>{{i["Created at"].strftime("%Y-%m-%d %I:%M")}}</div>
+            </div>
+        </a>
+        {% endfor%}
+    </div>
+    <div class="coming-soon">
+        ChatGPT blog summarization feature coming soon 🚀
+    </div>
+</body>
+</html>

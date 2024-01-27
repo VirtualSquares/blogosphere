@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'login.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Blogosphere</title>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="box">
+        <div class="container">
+
+            <div class="top">
+                <header>Login</header>
+            </div>
+
+            <form action="" method="post">
+                <div class="input-field">
+                    <input type="text" class="input" placeholder="Username" id="" name="username">
+                    <i class='bx bx-user'></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="Password" class="input" placeholder="Password" id="" name="password">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+
+                <div class="input-field">
+                    <input type="submit" class="submit" value="Login" id="">
+                </div>
+
+                <div class="two-col">
+                    <div class="one">
+                        <input type="radio" name="" id="check">
+                        <label for="check"> Remember Me</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="/forgot">Forgot password?</a></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
